@@ -1,0 +1,6 @@
+auto: true
+server: true
+markdown: rdiscount
+pygments: true
+permalink: /:year/:month/:title
+paginate: 10

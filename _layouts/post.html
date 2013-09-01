@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+    <article class="full-post">
+      <h1 class="full-post__title">{{ page.title }}</h1>
+      {{ content }}
+      <div class="social">
+        <div class="social__button">
+          <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+        </div>
+        <div class="social__button">
+          <div id="fb-root"></div>
+          <div class="fb-like" data-send="false" data-layout="button_count" 
+          data-width="1" data-show-faces="false" data-action="like"></div>
+        </div>
+        <div class="social__button">
+          <g:plusone size="medium"></g:plusone>
+        </div>
+      </div>
+      <div class="disqus">
+        <div id="disqus_thread"></div>
+      </div>
+    </article>
