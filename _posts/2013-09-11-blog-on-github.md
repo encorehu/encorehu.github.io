@@ -1,7 +1,7 @@
 ---
 layout: post
 permalink: /blog-on-github
-title: First Blog on github
+title: Github上的第一篇博客
 ---
 
 Yes, I'm here!
