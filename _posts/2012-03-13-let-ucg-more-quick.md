@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 permalink: /let-ucg-more-quick
 title: 使用户能够快速的产生信息
