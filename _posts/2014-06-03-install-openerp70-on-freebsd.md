@@ -84,6 +84,7 @@ title: FreeBSD 上安装OpenERP7.0
 
 
 将:
+
     [options]
     # Basic daemon configuration options ##################
     #root_path = /usr/local/lib/python2.7/site-packages/openerp/
@@ -110,7 +111,6 @@ title: FreeBSD 上安装OpenERP7.0
 # 切换到 pgsql 系统用户, 如果postgresql装好了, 就有系统用户 pgsql
 
     [root]  # su - pgsql
-
     [PGSQL] $ openerp_dbuser=openerp #跟配置文件一致 /usr/local/etc/openerp-server.conf
     [PGSQL] $ openerp_dbname=openerp #跟配置文件一致 /usr/local/etc/openerp-server.conf
     [PGSQL] $ createuser $openerp_dbuser
@@ -128,8 +128,6 @@ title: FreeBSD 上安装OpenERP7.0
 
     easy_install mock
     easy_install unittest2
-
-
 
 ##运行openerp, 执行命令
 
