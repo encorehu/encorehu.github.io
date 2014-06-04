@@ -22,12 +22,10 @@ django的那个admin actions提供了针对queryset的批量操作，比如批�
 
 另外，提供几个参考页面：
  - http://stackoverflow.com/search?page=2&tab=relevance&q=%5bdjango-admin%5d%20action] - http://stackoverflow.com/questions/2170521/django-extending-another-apps-modeladmin] - http://stackoverflow.com/questions/4825921/overriding-django-model-pys-delete-method-with-extra-arguments]
-按照上面的答案的那一篇文章来做的话，如果你的django版本中得csrf保护没开的话，可能会得到你想要的效果。如果你是用django1.3的话，估计要针对csrf来增加{%csrf_token%}到模板中了，并且在自定义的admin action中，需要修改一点东西，否则会出现403 forbidden，csrf token 验证错误。这个是我参考 django admin app中得到的：
+按照上面的答案的那一篇文章来做的话，如果你的django版本中得csrf保护没开的话，可能会得到你想要的效果。如果你是用django1.3的话，估计要针对csrf来增加{\%csrf_token\%}到模板中了，并且在自定义的admin action中，需要修改一点东西，否则会出现403 forbidden，csrf token 验证错误。这个是我参考 django admin app中得到的：
 
     return render_to_response('link/change_category.html',
+                                {'links': queryset, 'form': form, 'path':request.get_full_path()},
+                                context_instance=RequestContext(request))
 
-                                      {'links': queryset, 'form': form, 'path':request.get_full_path()},
-
-                                      context_instance=RequestContext(request))
-
-也就是说，render_to_response 这个函数中，要想从新得到csrf token，必须使用context_instance=RequestContext(request)，以便模板link/change_category.html中的{%csrf_token%}能够被赋值，否则就会导致csrf_token的值为空，导致csrf token的验证失败。
+也就是说，render_to_response 这个函数中，要想从新得到 csrf token ，必须使用context_instance=RequestContext(request)，以便模板link/change_category.html中的{\%csrf_token\%}能够被赋值，否则就会导致csrf_token的值为空，导致csrf token的验证失败。
