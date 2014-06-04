@@ -15,6 +15,7 @@ title: My Home Page
             </li>
             {% endfor %}
           </ul>
+          {{paginator.per_page}}/{{paginator.total_posts}}
           <div class="pagination">
             {% if paginator.previous_page %}
               {% if paginator.previous_page == 1 %}
