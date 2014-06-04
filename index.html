@@ -20,7 +20,7 @@ title: My Home Page
               {% if paginator.previous_page == 1 %}
                 <a href="/" class="pagination--previous">Previous</a>
               {% else %}
-                <a href="/page{{paginator.previous_page}}" class="pagination--previous">Previous</a>
+                <a href="{{ paginator.previous_page_path }}" class="pagination--previous">Previous</a>
               {% endif %}
             {% else %}
                 <span class="pagination--previous">Previous</span>
