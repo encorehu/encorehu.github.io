@@ -22,13 +22,13 @@ title: My Home Page
               {% else %}
                 <a href="/page{{paginator.previous_page}}" class="pagination--previous">Previous</a>
               {% endif %}
-              {% else %}
+            {% else %}
                 <span class="pagination--previous">Previous</span>
-              {% endif %}
-              {% if paginator.next_page %}
+            {% endif %}
+            {% if paginator.next_page %}
                 <a href="/page{{paginator.next_page}}" class="pagination--next">Next</a>
-              {% else %}
+            {% else %}
                 <span class="pagination--next">Next</span>
             {% endif %}
-    </div>
+          </div>
         </section>
