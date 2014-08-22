@@ -126,8 +126,21 @@ title: FreeBSD 上安装OpenERP7.0
 
 ##补装几个python模块:
 
+
     easy_install mock
     easy_install unittest2
+    easy_install simplejson
+    easy_install werkzeug
+    easy_install jinja2
+
+##查看/var/log/openerp/openerp-server.log这个日志文件, 缺什么装什么
+
+    easy_install python-openid
+    easy_install docutils
+
+##测试运行openerp, 可以直接看到错误
+
+	/usr/local/bin/openerp-server
 
 ##运行openerp, 执行命令
 
