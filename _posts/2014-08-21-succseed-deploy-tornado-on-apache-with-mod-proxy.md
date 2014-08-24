@@ -40,6 +40,10 @@ title: 使用Apache部署Tornado
 	        self.write('fffffffffff')   #没用
 	        self.finish()  #显式调用都没用
 
+查阅了很多资料, 我发现了 http://stackoverflow.com/questions/21459642/how-to-use-async-tornado-api-inside-tornado-wsgi-wsgicontainer/21460482#21460482
+
+我觉得问题可能正如文中所说, 如果使用了wsgi, 那么一切使用了gen.coroutine的这种异步编程模式的代码, 都会不正常, 因为wsgi并不支持异步编程. 所有使用了gen.coroutine修饰符的tornado异步代码都会执行不正确或者不正常, 必须使用同样功能的同步代码来完成你的get或者post操作, 也就是说阻塞在wsgi中是不可避免的, 而且, 如果想把tornado的项目使用wsgi来使他跑起来, 最后就是那些异步代码可能执行不了.我现在遇到的问题就是raise Exception("request did not finish synchronously"), 解决的办法只有方法二了, 就是tornado自己运行, 然后使用apache或者nginx的反向代理来完成转发web请求.
+
 ###方法二: 使用proxy代理, 配置多, 但是行了
 
 ####Apache 虚拟主机配置
